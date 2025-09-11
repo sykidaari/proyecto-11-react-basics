@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: Avatar;
+  src: url('/assets/fonts/Avatar-Airbender.ttf');
+}
+
+@font-face {
+  font-family: Herculanum;
+  src: url('/assets/fonts/HerculanumLTProRoman.TTF');
+}
+
+@theme {
+  /* FONTS */
+  --font-app-titles: 'Avatar', serif;
+  --font-app-detail: 'Herculanum', sans-serif;
+
+  /* COLORS */
+  --color-app-sand: oklch(83.616% 0.05494 88.354);
+  --color-app-sand-50: oklch(96.178% 0.01269 86.83);
+  --color-app-sand-100: oklch(93.768% 0.02096 88.723);
+  --color-app-sand-200: oklch(88.705% 0.03796 88.473);
+  --color-app-sand-300: oklch(83.616% 0.05494 88.354);
+  --color-app-sand-400: oklch(76.712% 0.07821 88.134);
+  --color-app-sand-500: oklch(69.722% 0.09768 87.84);
+  --color-app-sand-600: oklch(59.107% 0.08604 86.525);
+  --color-app-sand-700: oklch(47.281% 0.06636 86.421);
+  --color-app-sand-800: oklch(34.886% 0.0469 89.132);
+  --color-app-sand-900: oklch(21.122% 0.02301 87.779);
+  --color-app-sand-950: oklch(12.993% 0.00995 83.127);
+
+  /* --color-app-stone: oklch(67.912% 0.03764 87.076);
+  --color-app-stone-50: oklch(94.653% 0.00576 84.567);
+  --color-app-stone-100: oklch(91.65% 0.0087 84.574);
+  --color-app-stone-200: oklch(85.853% 0.01596 86.432);
+  --color-app-stone-300: oklch(79.966% 0.02342 87.167);
+  --color-app-stone-400: oklch(74.006% 0.0298 86.657);
+  --color-app-stone-500: oklch(67.912% 0.03764 87.076);
+  --color-app-stone-600: oklch(58.67% 0.0405 86.11);
+  --color-app-stone-700: oklch(48.142% 0.0313 85.609);
+  --color-app-stone-800: oklch(37.323% 0.02426 87.552);
+  --color-app-stone-900: oklch(25.283% 0.01347 87.569);
+  --color-app-stone-950: oklch(18.758% 0.0085 84.574); */
+
+  --color-app-ink: oklch(29.449% 0.00461 67.647);
+  --color-app-ink-50: oklch(82.498% 0.00535 67.751);
+  --color-app-ink-100: oklch(79.363% 0.0054 67.747);
+  --color-app-ink-200: oklch(72.729% 0.00736 67.71);
+  --color-app-ink-300: oklch(66.273% 0.00941 67.664);
+  --color-app-ink-400: oklch(59.566% 0.01085 72.592);
+  --color-app-ink-500: oklch(52.378% 0.00998 67.608);
+  --color-app-ink-600: oklch(45.2% 0.00828 67.616);
+  --color-app-ink-700: oklch(37.343% 0.00652 67.626);
+  --color-app-ink-800: oklch(29.449% 0.00461 67.647);
+  --color-app-ink-900: oklch(17.382% 0.00263 67.653);
+  --color-app-ink-950: oklch(8.4673% 0 none);
+
+  --color-app-sepia: oklch(73.877% 0.06459 74.506);
+  --color-app-sepia-50: oklch(93.676% 0.01537 77.069);
+  --color-app-sepia-100: oklch(90.86% 0.02233 74.085);
+  --color-app-sepia-200: oklch(85.31% 0.03642 75.505);
+  --color-app-sepia-300: oklch(79.513% 0.05025 74.054);
+  --color-app-sepia-400: oklch(73.877% 0.06459 74.506);
+  --color-app-sepia-500: oklch(65.902% 0.0829 73.002);
+  --color-app-sepia-600: oklch(55.769% 0.07266 72.748);
+  --color-app-sepia-700: oklch(44.848% 0.05682 73.498);
+  --color-app-sepia-800: oklch(32.845% 0.0387 73.78);
+  --color-app-sepia-900: oklch(20.016% 0.01934 77.4);
+  --color-app-sepia-950: oklch(12.425% 0.00793 72.527);
+
+  --color-app-teal: oklch(57.64% 0.05093 161.9);
+  --color-app-teal-50: oklch(91.595% 0.01261 164.78);
+  --color-app-teal-100: oklch(88.57% 0.01687 162.7);
+  --color-app-teal-200: oklch(82.723% 0.0257 164.3);
+  --color-app-teal-300: oklch(76.77% 0.0355 162.95);
+  --color-app-teal-400: oklch(70.835% 0.04385 162.65);
+  --color-app-teal-500: oklch(64.724% 0.05406 161.51);
+  --color-app-teal-600: oklch(57.64% 0.05093 161.9);
+  --color-app-teal-700: oklch(47.012% 0.03935 161.82);
+  --color-app-teal-800: oklch(35.941% 0.02978 161.47);
+  --color-app-teal-900: oklch(23.706% 0.01609 160.56);
+  --color-app-teal-950: oklch(17.099% 0.01002 158.81);
+
+  /* --color-app-gray: oklch(53.128% 0 none); */
+  /* --color-app-gray-50: oklch(89.449% 0 none);
+  --color-app-gray-100: oklch(86.378% 0 none);
+  --color-app-gray-200: oklch(80.152% 0 none);
+  --color-app-gray-300: oklch(73.481% 0 none);
+  --color-app-gray-400: oklch(66.984% 0 none);
+  --color-app-gray-500: oklch(59.987% 0 none);
+  --color-app-gray-600: oklch(53.128% 0 none);
+  --color-app-gray-700: oklch(43.128% 0 none);
+  --color-app-gray-800: oklch(32.504% 0 none);
+  --color-app-gray-900: oklch(20.904% 0 none);
+  --color-app-gray-950: oklch(14.479% 0 none); */
+
+  --color-app-gold: oklch(60.934% 0.11005 82.824);
+  --color-app-gold-50: oklch(90.765% 0.04928 86.346);
+  --color-app-gold-100: oklch(88.472% 0.0617 86.408);
+  --color-app-gold-200: oklch(83.941% 0.0846 85.957);
+  --color-app-gold-300: oklch(79.474% 0.1056 85.227);
+  --color-app-gold-400: oklch(75.289% 0.12345 84.635);
+  --color-app-gold-500: oklch(69.704% 0.12703 82.557);
+  --color-app-gold-600: oklch(60.934% 0.11005 82.824);
+  --color-app-gold-700: oklch(48.449% 0.0858 83.518);
+  --color-app-gold-800: oklch(34.729% 0.05855 84.375);
+  --color-app-gold-900: oklch(19.894% 0.02692 87.173);
+  --color-app-gold-950: oklch(10.025% 0.0131 77.316);
+}
