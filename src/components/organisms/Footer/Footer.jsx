@@ -1,4 +1,4 @@
-import P from '../elements/P/P';
+import P from '../../atoms/P/P';
 
 const Footer = () => {
   return (

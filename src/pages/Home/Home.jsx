@@ -1,12 +1,12 @@
-import H1 from '../../components/elements/H1/H1';
-import P from '../../components/elements/P/P';
-import ContentBlock from '../../components/wrappers/ContentBlock/ContentBlock';
-import SectionBox from '../../components/wrappers/SectionBox/SectionBox';
+import H1 from '../../components/atoms/H1/H1';
+import P from '../../components/atoms/P/P';
+import ContentBlock from '../../components/atoms/ContentBlock/ContentBlock';
+import ContentBox from '../../components/atoms/ContentBox/ContentBox';
 
 const Home = () => {
   return (
-    <>
-      <SectionBox>
+    <div className='flex flex-row items-center m-auto'>
+      <ContentBox as='section' className='max-w-sm'>
         <ContentBlock>
           <H1>Welcome to Wan Shi Tong's Archives!</H1>
         </ContentBlock>
@@ -22,13 +22,13 @@ const Home = () => {
             knowledge is a gift not to be squandered.
           </P>
         </ContentBlock>
-      </SectionBox>
+      </ContentBox>
 
       <img
         src='/assets/imgs/wan-shi-ton-big.png'
-        className='w-lg z-10 drop-shadow-xl drop-shadow-app-teal-800'
+        className='w-lg object-contain z-10 drop-shadow-xl drop-shadow-app-teal-800'
       ></img>
-    </>
+    </div>
   );
 };
 

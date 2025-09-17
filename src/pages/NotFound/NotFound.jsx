@@ -1,5 +1,13 @@
+import { Link } from 'react-router-dom';
+import Message from '../../components/molecules/Message/Message';
+
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return (
+    <Message img='/assets/imgs/youre-not-bright.gif' alt='funny gif'>
+      <span className='text-2xl font-app-detail'>404</span> Sorry, this page
+      doesn't exist.
+    </Message>
+  );
 };
 
 export default NotFound;
