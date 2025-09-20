@@ -1,14 +1,39 @@
+import { cN } from '../../../utils/classNameManager';
+import { groupKeys } from '../../../utils/objectHelpers';
 import ContentBlock from '../../atoms/ContentBlock/ContentBlock';
+import StyledImg from '../../atoms/StyledImg/StyledImg';
+import StyledP from '../../atoms/StyledP/StyledP';
 import Card from '../../molecules/Card/Card';
+import DetailBlock from '../../molecules/DetailBlock/DetailBlock';
 
-const CharacterCard = ({ className, character }) => {
+const CharacterCard = ({ character, detail = false }) => {
   const { photoUrl, name } = character;
 
+  const detailAttributes = groupKeys(character, [
+    'gender',
+    'affiliation',
+    'position',
+    'profession',
+    'weapon',
+    'predecessor'
+  ]);
+
   return (
-    <Card title={name} boxClassName={className}>
+    <Card
+      title={name}
+      className={cN('w-2xs h-74', detail && 'h-auto w-md hover:scale-100 ')}
+    >
       <ContentBlock className='h-full'>
-        <img src={photoUrl} alt={name} className='rounded-md object-contain' />
+        <StyledImg
+          className={cN(detail && 'w-md')}
+          externalSrc={photoUrl}
+          alt={name}
+        />
       </ContentBlock>
+
+      {detail && detailAttributes.length > 0 && (
+        <DetailBlock detailAttributes={detailAttributes}></DetailBlock>
+      )}
     </Card>
   );
 };

@@ -6,6 +6,7 @@ import PageMenu from '../../components/organisms/pageMenu/pageMenu';
 import { useReqData } from '../../utils/hooks/useReqData';
 import Error from '../../components/atoms/Error/Error';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Episodes = () => {
   const {
@@ -20,17 +21,32 @@ const Episodes = () => {
   const [seasons, setSeasons] = useState([]);
 
   useEffect(() => {
-    setSeasons([...new Set(episodes.map((episode) => episode.Season))]);
+    setSeasons([...new Set(episodes.map((episode) => Number(episode.Season)))]);
   }, [episodes]);
+
+  const { pagenr } = useParams();
+
+  const currentSeason = pagenr ? Number(pagenr) : 1;
+
+  const episodesBySeason = episodes.filter(
+    (episode) => Number(episode.Season) === currentSeason
+  );
 
   return (
     <>
-      <PageMenu prefix='Season' pages={seasons} />
-
       {loading && <Loader />}
       {error && <Error />}
 
-      <CardGallery items={episodes} to='episode'>
+      {episodes.length > 0 && (
+        <PageMenu
+          prefix='Season'
+          pages={seasons}
+          to='/episodes/season'
+          activePage={currentSeason}
+        />
+      )}
+
+      <CardGallery items={episodesBySeason} to='/episodes/episode'>
         {(episode) => <EpisodeCard episode={episode} className='w-3xs h-17' />}
       </CardGallery>
     </>

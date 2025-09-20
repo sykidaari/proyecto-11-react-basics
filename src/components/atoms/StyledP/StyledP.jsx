@@ -1,6 +1,6 @@
 import { cN } from '../../../utils/classNameManager';
 
-const P = ({ children, className }) => {
+const StyledP = ({ children, className }) => {
   return (
     <p className={cN('text-sm text-balance text-center', className)}>
       {children}
@@ -8,4 +8,4 @@ const P = ({ children, className }) => {
   );
 };
 
-export default P;
+export default StyledP;

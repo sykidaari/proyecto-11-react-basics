@@ -2,7 +2,7 @@ import StyledNavLink from '../../atoms/StyledNavLink/StyledNavLink';
 
 const Header = () => {
   return (
-    <header className='fixed top-0 w-screen bg-gradient-to-b from-app-teal-500 to-app-teal-500/10  py-3 px-5 z-50 backdrop-blur-xs'>
+    <header className='fixed top-0 w-screen bg-gradient-to-b from-app-teal-500 to-app-teal-500/10  py-2 px-5 z-50 backdrop-blur-xs'>
       <nav>
         <ul className='flex justify-between max-w-4xl m-auto'>
           <li>

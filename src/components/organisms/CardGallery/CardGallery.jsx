@@ -3,11 +3,11 @@ import { cN } from '../../../utils/classNameManager';
 
 const CardGallery = ({ items, children, to }) => {
   return (
-    <section>
-      <ul className={cN('flex flex-wrap justify-center items-center gap-5')}>
+    <section className=' m-auto'>
+      <ul className={cN(' flex flex-wrap justify-center items-center gap-5 ')}>
         {items.map((item) => (
-          <Link to={`${to}/${item.id}`}>
-            <li key={item.id}>{children(item)}</li>
+          <Link to={`${to}/${item.id}`} key={item.id}>
+            <li>{children(item)}</li>
           </Link>
         ))}
       </ul>

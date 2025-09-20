@@ -1,17 +1,18 @@
-import H1 from '../../components/atoms/H1/H1';
-import P from '../../components/atoms/P/P';
+import StyledH1 from '../../components/atoms/StyledH1/StyledH1';
+import StyledP from '../../components/atoms/StyledP/StyledP';
 import ContentBlock from '../../components/atoms/ContentBlock/ContentBlock';
 import ContentBox from '../../components/atoms/ContentBox/ContentBox';
+import StyledImg from '../../components/atoms/StyledImg/StyledImg';
 
 const Home = () => {
   return (
-    <div className='flex flex-row items-center m-auto'>
+    <div className='m-auto flex justify-center items-center'>
       <ContentBox as='section' className='max-w-sm'>
         <ContentBlock>
-          <H1>Welcome to Wan Shi Tong's Archives!</H1>
+          <StyledH1>Welcome to Wan Shi Tong's Archives!</StyledH1>
         </ContentBlock>
         <ContentBlock>
-          <P>
+          <StyledP>
             Greetings, humans. I am{' '}
             <span className='font-semibold italic'>Wan Shi Tong</span>, He Who
             Knows Ten Thousand Things. These are my Archives; a collection
@@ -20,14 +21,15 @@ const Home = () => {
             Here you will find records of characters, accounts of episodes, and
             even challenges to test your wisdom. Explore with respect, for
             knowledge is a gift not to be squandered.
-          </P>
+          </StyledP>
         </ContentBlock>
       </ContentBox>
 
-      <img
-        src='/assets/imgs/wan-shi-ton-big.png'
-        className='w-lg object-contain z-10 drop-shadow-xl drop-shadow-app-teal-800'
-      ></img>
+      <StyledImg
+        src='wan-shi-ton-big.png'
+        alt='Wan Shi Ton'
+        className='w-lg drop-shadow-xl'
+      />
     </div>
   );
 };

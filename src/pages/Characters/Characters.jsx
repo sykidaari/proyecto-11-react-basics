@@ -21,9 +21,7 @@ const Characters = () => {
       {error && <Error />}
 
       <CardGallery items={characters} to='character'>
-        {(character) => (
-          <CharacterCard character={character} className='w-2xs h-74' />
-        )}
+        {(character) => <CharacterCard character={character} />}
       </CardGallery>
     </>
   );
