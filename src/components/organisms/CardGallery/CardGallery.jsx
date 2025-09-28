@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 import { cN } from '../../../utils/classNameManager';
 
-const CardGallery = ({ items, children, to }) => {
+const CardGallery = ({ items, children, to, className }) => {
   return (
-    <section className=' m-auto'>
-      <ul className={cN(' flex flex-wrap justify-center items-center gap-5 ')}>
+    <section className=' m-auto pt-28'>
+      <ul
+        className={cN(
+          ' flex flex-wrap justify-center items-center gap-5',
+          className
+        )}
+      >
         {items.map((item) => (
-          <Link to={`${to}/${item.id}`} key={item.id}>
-            <li>{children(item)}</li>
-          </Link>
+          <li key={item.id}>
+            {to ? (
+              <Link to={`${to}/${item.id}`}>{children(item)}</Link>
+            ) : (
+              children(item)
+            )}
+          </li>
         ))}
       </ul>
     </section>

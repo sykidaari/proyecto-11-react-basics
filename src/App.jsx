@@ -9,6 +9,7 @@ import Background from './components/atoms/Background/Background';
 import Footer from './components/organisms/Footer/Footer';
 import Character from './pages/Character/Character';
 import Episode from './pages/Episode/Episode';
+import { cN } from './utils/classNameManager';
 
 function App() {
   return (
@@ -20,7 +21,13 @@ function App() {
       <Routes>
         <Route
           element={
-            <main className='relative z-10 max-w-8xl pt-13 px-5 flex  items-center flex-col gap-4 min-h-[calc(100dvh-34px)]'>
+            <main
+              className={cN(
+                'relative z-10 max-w-8xl py-13 px-5 flex  items-center flex-col gap-4 min-h-[calc(100dvh-34px)]',
+                // MEDIA QUERIES
+                'max-sm:px-2'
+              )}
+            >
               <Outlet />
             </main>
           }
@@ -29,6 +36,7 @@ function App() {
 
           <Route path='characters' element={<Outlet />}>
             <Route index element={<Characters />} />
+            <Route path='page/:pagenr' element={<Characters />} />
             <Route path='character/:id' element={<Character />} />
           </Route>
 

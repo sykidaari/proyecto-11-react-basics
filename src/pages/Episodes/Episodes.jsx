@@ -2,11 +2,12 @@ import { contentApi } from '../../api/axios';
 import EpisodeCard from '../../components/organisms/EpisodeCard/EpisodeCard';
 import CardGallery from '../../components/organisms/CardGallery/CardGallery';
 import Loader from '../../components/atoms/Loader/Loader';
-import PageMenu from '../../components/organisms/pageMenu/pageMenu';
+import PageMenu from '../../components/organisms/PageMenu/PageMenu';
 import { useReqData } from '../../utils/hooks/useReqData';
 import Error from '../../components/atoms/Error/Error';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import NotFound from '../NotFound/NotFound';
 
 const Episodes = () => {
   const {
@@ -16,6 +17,7 @@ const Episodes = () => {
   } = useReqData({
     request: () => contentApi.get('episodes'),
     edit: (data) => data.slice(0, -2)
+    // last 2 episodes are incorrect data, nonexistent
   });
 
   const [seasons, setSeasons] = useState([]);
@@ -32,19 +34,18 @@ const Episodes = () => {
     (episode) => Number(episode.Season) === currentSeason
   );
 
+  if (loading) return <Loader />;
+  if (error) return <Error />;
+  if (!episodesBySeason.length) return <NotFound />;
+
   return (
     <>
-      {loading && <Loader />}
-      {error && <Error />}
-
-      {episodes.length > 0 && (
-        <PageMenu
-          prefix='Season'
-          pages={seasons}
-          to='/episodes/season'
-          activePage={currentSeason}
-        />
-      )}
+      <PageMenu
+        prefix='Season'
+        pages={seasons}
+        to='/episodes/season'
+        pagenr={pagenr}
+      />
 
       <CardGallery items={episodesBySeason} to='/episodes/episode'>
         {(episode) => <EpisodeCard episode={episode} className='w-3xs h-17' />}

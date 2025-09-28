@@ -17,19 +17,11 @@ const Character = () => {
     request: () => characterApi.get(id)
   });
 
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Error />
-      ) : !character ? (
-        <NotFound />
-      ) : (
-        <CharacterCard character={character} detail={true} />
-      )}
-    </>
-  );
+  if (loading) return <Loader />;
+  if (error) return <Error />;
+  if (!character) return <NotFound />;
+
+  return <CharacterCard character={character} detail />;
 };
 
 export default Character;

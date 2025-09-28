@@ -25,7 +25,7 @@ const CharacterCard = ({ character, detail = false }) => {
     >
       <ContentBlock className='h-full'>
         <StyledImg
-          className={cN(detail && 'w-md')}
+          className={cN('max-h-48', detail && 'max-w-sm max-h-74')}
           externalSrc={photoUrl}
           alt={name}
         />

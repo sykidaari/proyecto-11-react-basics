@@ -23,9 +23,21 @@ const EpisodeCard = ({ episode, detail = false }) => {
 
   return (
     <Card
-      titleBlockClassName={cN('w-3xs h-18', detail && 'w-auto')}
+      titleBlockClassName={cN(
+        'w-3xs h-18',
+        detail && 'w-auto',
+        // MEDIA-QUERIES:
+        'max-[330px]:w-50 max-[260px]:w-40',
+
+        // for detail view
+        'max-[360px]:min-w-full'
+      )}
       title={Title.slice(1, -1)}
-      className={cN(detail && 'hover:scale-100 w-xs')}
+      className={cN(
+        detail && 'hover:scale-100 w-xs',
+        // MEDIA-QUERIES:
+        'max-[360px]:w-full'
+      )}
     >
       {detail && detailAttributes.length > 0 && (
         <DetailBlock detailAttributes={updatedAttributes}></DetailBlock>

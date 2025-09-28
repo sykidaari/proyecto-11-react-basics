@@ -11,6 +11,9 @@
 }
 
 @theme {
+  /* BREAKPOINTS */
+  --breakpoint-app-main: 930px;
+
   /* FONTS */
   --font-app-titles: 'Avatar', serif;
   --font-app-detail: 'Herculanum', sans-serif;

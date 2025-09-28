@@ -14,22 +14,19 @@ const Episode = () => {
     loading,
     error
   } = useReqData({
-    request: () => contentApi.get(`episodes/${id}`)
+    request: () => {
+      if (id === '125' || id === '126') {
+        return Promise.resolve({ data: null });
+      } // episodes 125 and 126 are incorrect data, nonexistent, so skip API call
+      return contentApi.get(`episodes/${id}`);
+    }
   });
 
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Error />
-      ) : !episode ? (
-        <NotFound />
-      ) : (
-        <EpisodeCard episode={episode} detail={true} />
-      )}
-    </>
-  );
+  if (loading) return <Loader />;
+  if (error || episode === null) return <Error />;
+  if (!episode) return <NotFound />;
+
+  return <EpisodeCard episode={episode} detail />;
 };
 
 export default Episode;
