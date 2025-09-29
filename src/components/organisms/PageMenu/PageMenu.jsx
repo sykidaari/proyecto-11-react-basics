@@ -3,19 +3,32 @@ import ContentBlock from '../../atoms/ContentBlock/ContentBlock';
 import ContentBox from '../../atoms/ContentBox/ContentBox';
 import { cN } from '../../../utils/classNameManager';
 
-const PageMenu = ({ prefix, pages, to, pagenr }) => {
+const PageMenu = ({ prefix, pages, to, pagenr, shrink = false }) => {
   const currentPageNr = pagenr ? Number(pagenr) : 1;
 
   return (
-    <ContentBox className='mt-4 fixed z-50 backdrop-blur-xs'>
+    <ContentBox
+      className={cN(
+        'mt-1.5 fixed z-50 backdrop-blur-xs py-4 mx-1',
+
+        // MEDIA QUERIES:
+        shrink && 'max-[300px]:px-2'
+      )}
+    >
       <nav>
-        <ul className='flex gap-2'>
+        <ul
+          className={cN(
+            'flex gap-2',
+            // MEDIA QUERIES:
+            shrink && 'max-[300px]:gap-0.5'
+          )}
+        >
           {pages.map((page) => {
             let linkTo;
 
             let firstOrLastPage;
 
-            // Setup for "characters PageMenu"
+            // Setup for "Characters" PageMenu
             if (page === '<') {
               if (currentPageNr === 1) {
                 firstOrLastPage = true;
@@ -32,12 +45,18 @@ const PageMenu = ({ prefix, pages, to, pagenr }) => {
 
             return (
               <li key={page}>
-                <ContentBlock className='from-app-sepia-400 border-app-sepia-600 text-app-sand-50 transition'>
+                <ContentBlock
+                  className={cN(
+                    'from-app-sepia-400 border-app-sepia-600 text-app-sand-50 transition',
+                    // MEDIA QUERIES:
+                    shrink && 'max-[300px]:p-1'
+                  )}
+                >
                   <NavLink
                     to={linkTo}
                     className={({ isActive }) =>
                       cN(
-                        'font-app-detail font-bold text-sm text-center min-w-7',
+                        'font-app-detail font-bold text-sm text-center min-w-7 ',
                         (isActive || (!pagenr && page === 1)) &&
                           'text-app-ink font-bold *:font-bold',
                         firstOrLastPage &&

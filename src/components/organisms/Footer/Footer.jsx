@@ -8,7 +8,7 @@ const Footer = () => {
         className={cN(
           'text-right max-w-4xl m-auto text-app-sand-50/70 text-xs',
           //MEDIA QUERIES:
-          ' sm:max-app-main:pr-3 max-sm:text-center'
+          ' sm:max-app-main:pr-3 max-sm:text-center max-sm:px-3'
         )}
       >
         Created by{' '}

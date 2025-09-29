@@ -79,11 +79,12 @@ const Quiz = () => {
           <Card
             title={`Question ${id}.`}
             className={cN(
-              'hover:scale-100 w-sm absolute bottom-1/2 translate-y-1/2 right-1/2 translate-1/2 hidden',
+              'hover:scale-100 w-sm absolute bottom-1/2 translate-y-1/2 right-1/2 translate-1/2 h-fit hidden',
               currentQuestion === id && 'flex',
               // MEDIA QUERIES
               'max-[430px]:w-[calc(100%-32px)]',
-              'max-[430px]:w-[calc(100%-18px)]'
+              'max-[430px]:w-[calc(100%-18px)]',
+              '[@media(max-height:500px)]:-top-20 '
             )}
           >
             <ContentBlock>

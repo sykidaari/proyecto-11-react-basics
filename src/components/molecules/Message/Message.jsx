@@ -6,7 +6,7 @@ import StyledImg from '../../atoms/StyledImg/StyledImg';
 
 const Message = ({ children, img, alt }) => {
   return (
-    <ContentBox className='m-auto w-2xs gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+    <ContentBox className='m-auto max-w-2xs w-[calc(100vw-18px)] gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
       <ContentBlock className='flex-col gap-2.5'>
         <StyledP className='flex flex-col justify-center items-center'>
           {children}

@@ -21,11 +21,17 @@ const CharacterCard = ({ character, detail = false }) => {
   return (
     <Card
       title={name}
-      className={cN('w-2xs h-74', detail && 'h-auto w-md hover:scale-100 ')}
+      className={cN(
+        'w-2xs h-74',
+        detail && 'h-auto w-md hover:scale-100 ',
+        // MEDIA QUERIES:
+        'max-[320px]:w-[calc(100vw-18px)]',
+        detail && 'max-[500px]:w-[calc(100vw-18px)]'
+      )}
     >
-      <ContentBlock className='h-full'>
+      <ContentBlock className='h-full '>
         <StyledImg
-          className={cN('max-h-48', detail && 'max-w-sm max-h-74')}
+          className={cN('max-h-48', detail && 'max-w-full max-h-74')}
           externalSrc={photoUrl}
           alt={name}
         />

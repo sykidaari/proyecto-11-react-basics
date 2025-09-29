@@ -3,7 +3,7 @@ import { cN } from '../../../utils/classNameManager';
 
 const CardGallery = ({ items, children, to, className }) => {
   return (
-    <section className=' m-auto pt-28'>
+    <section className='m-auto pt-24'>
       <ul
         className={cN(
           ' flex flex-wrap justify-center items-center gap-5',

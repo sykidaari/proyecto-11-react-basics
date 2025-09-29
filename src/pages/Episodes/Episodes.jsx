@@ -8,6 +8,7 @@ import Error from '../../components/atoms/Error/Error';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NotFound from '../NotFound/NotFound';
+import { cN } from '../../utils/classNameManager';
 
 const Episodes = () => {
   const {
@@ -45,6 +46,7 @@ const Episodes = () => {
         pages={seasons}
         to='/episodes/season'
         pagenr={pagenr}
+        shrink
       />
 
       <CardGallery items={episodesBySeason} to='/episodes/episode'>
