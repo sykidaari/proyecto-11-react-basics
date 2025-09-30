@@ -23,7 +23,7 @@ const Characters = () => {
         params: { perPage: 20, page: currentPageNr }
       }),
     edit: (data) => data.map(({ _id, ...rest }) => ({ id: _id, ...rest })),
-    deps: [currentPageNr]
+    deps: currentPageNr
   });
 
   if (loading) return <Loader />;
